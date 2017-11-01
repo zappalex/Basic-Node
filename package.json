@@ -1,0 +1,12 @@
+{
+  "name": "restful",
+  "main": "server_xml.js",
+  "dependencies": {
+    "express": "~4.0.0",
+    "mongoose": "~3.6.20",
+    "body-parser": "~1.0.1"
+  },
+  "devDependencies": {
+    "mongoose": "^3.6.20"
+  }
+}
