@@ -45,12 +45,15 @@ router.route('/motorcycles')
 	var motorcycle = new Motorcycle(); 
 
 	motorcycle.make = req.body.make; 
+	motorcycle.model = req.body.model; 
+	motorcycle.year = req.body.year; 
+	motorcycle.mileage = req.body.mileage; 
 
 	motorcycle.save(function(err){
 		if(err)
 			res.send(err); 
 
-		res.json({message: motorcycle.make + " - " + motorcycle.model + " was just created."}); 
+		res.json({message: motorcycle.make + " " + motorcycle.model + " was just created."}); 
 	}); 
 }) // remember: no ';' here, they are linked.  fool. 
 
@@ -59,7 +62,7 @@ router.route('/motorcycles')
 		if(err)
 			res.send(err); 
 
-		res.json(bears); 
+		res.json(motorcycle); 
 	}); 
 }); 
 
