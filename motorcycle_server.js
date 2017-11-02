@@ -7,9 +7,9 @@ var app 		= express();
 var bodyParser 	= require('body-parser'); 
 var mongoose 	= require('mongoose'); 
 
-// local mongo db location. When hit, a collection named "bear" will automatically be created in the "Bear" db. 
-mongoose.connect("mongodb://localhost/Bear"); 
-var Bear 		= require("./app/models/bear")
+// local mongo db location. When hit, a collection named "motorcycle" will automatically be created in the "Motorcycle" db. 
+mongoose.connect("mongodb://localhost/Motorcycle"); 
+var Motorcycle = require("./app/models/motorcycle")
 
 //configure bodyParser, this will let us get data from a POST
 app.use(bodyParser.urlencoded({extended: true})); 
@@ -33,28 +33,29 @@ router.use(function(req, res, next){
 
 // -------- routes that end in /api --------
 router.get('/', function(req, res){
-	res.json({message: 'welcome to the bears api, motherfucker.'});
+	res.json({message: 'welcome to the motorcycles api.'});
 });
 
 
-// -------- routes that end in /bears --------
-// create a bear, get all bears here. 
-router.route('/bears')
+// -------- routes that end in /motorcycles --------
+// create a motorcycle, get all motorcycles here. 
+router.route('/motorcycles')
 
 .post(function(req, res){
-	var bear = new Bear(); 
-	bear.name = req.body.name; 
+	var motorcycle = new Motorcycle(); 
 
-	bear.save(function(err){
+	motorcycle.make = req.body.make; 
+
+	motorcycle.save(function(err){
 		if(err)
 			res.send(err); 
 
-		res.json({message: bear.name + " the bear was just created!"}); 
+		res.json({message: motorcycle.make + " - " + motorcycle.model + " was just created."}); 
 	}); 
-}) // remember: no '; ' here, they are linked.  fool. 
+}) // remember: no ';' here, they are linked.  fool. 
 
 .get(function(req, res){
-	Bear.find(function(err, bears){
+	Motorcycle.find(function(err, motorcycle){
 		if(err)
 			res.send(err); 
 
@@ -63,48 +64,47 @@ router.route('/bears')
 }); 
 
 
-// ------ routes that end in /bears/:bear_id --------
-// get a single bear / update a single bear / delete a fucking bear. 
-router.route('/bears/:bear_id')
+// ------ routes that end in /motorcycles/:motorcycle_id --------
+// get a single motorcycle / update a single motorcycle / delete a motorcycle. 
+router.route('/motorcycle/:motorcycle_id')
 
 // get a single bear by id
 .get(function(req, res){
-	Bear.findById(req.params.bear_id, function(err, bear){
+	Motorcycle.findById(req.params.motorcycle_id, function(err, motorcycle){
 		if(err)
 			res.send(err); 
 
-		res.json(bear); 
+		res.json(motorcycle); 
 	}); 
 })
 
-// update a bear by id
+// update a motorcycle by id
 .put(function(req, res){
-
-	Bear.findById(req.params.bear_id, function(err, bear){
+	Motorcycle.findById(req.params.motorcycle_id, function(err, motorcycle){
 		if(err)
 			res.send(err); 
 
-		bear.name = req.body.name; 
+		motorcycle.make = req.body.make; 
 
-		bear.save(function(err){
+		motorcycle.save(function(err){
 			if(err)
 				res.send(err); 
 
-			res.json({ message: "Bear updated!"}); 
+			res.json({ message: "Motorcycle updated!"}); 
 		});
 	});
 })
 
-// delete a bear by id
+// delete a motorcycle by id
 .delete(function(req, res){
 
-	Bear.remove({
-		 _id: req.params.bear_id
-	}, function(err, bear){
+	 Motorcycle.remove({
+		 _id: req.params.motorcycle_id
+	}, function(err, motorcycle){
 		if(err)
 			res.send(err); 
 
-		res.json({ message: 'Bear successfully deleted :('}); 
+		res.json({ message: 'Motorcycle successfully deleted :('}); 
 	}); 
 }); 
 
