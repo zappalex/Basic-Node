@@ -1,0 +1,134 @@
+{
+	"variables": [],
+	"info": {
+		"name": "node sandbox",
+		"_postman_id": "f48c659b-69cb-676a-a7fa-a4999581bd59",
+		"description": "contains calls from node and express bears example. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Node and Express example",
+			"description": "",
+			"item": [
+				{
+					"name": "add a motorcycle",
+					"request": {
+						"url": "http://localhost:8080/api/motorcycles",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "make",
+									"value": "ducati",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "model",
+									"value": "hypermotard",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "year",
+									"value": "2012",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "mileage",
+									"value": "5006",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": "make sure to have \"name\" param sent through body. "
+					},
+					"response": []
+				},
+				{
+					"name": "get motorcycle by id",
+					"request": {
+						"url": "http://localhost:8080/api/motorcycle/59fb820006a3af3178000001",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "forsberg",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": "pass id through url"
+					},
+					"response": []
+				},
+				{
+					"name": "delete a motorcycle by id",
+					"request": {
+						"url": "http://localhost:8080/api/motorcycle/<id>",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "pass id through url "
+					},
+					"response": []
+				},
+				{
+					"name": "update motorcycle by id",
+					"request": {
+						"url": "http://localhost:8080/api/motorcycle/<id>",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "danny boy",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": "pass id through url"
+					},
+					"response": []
+				},
+				{
+					"name": "base api call",
+					"request": {
+						"url": "http://localhost:8080/api",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\r    \"_source\": {\"include\": [\"path\", \"moddate\", \"htmlpageasset.friendlyname\", \"identifier\", \"confolder_dotraw\"]},\r    \"fields\": \"\",\r\"query\": {\r\"bool\": {\r\"must\": [\r{\r\"term\": {\r\"parentpath\": \"/disclosure_service/\"\r}\r}\r]\r}\r}\r}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all motorcycles",
+					"request": {
+						"url": "http://localhost:8080/api/motorcycles",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
