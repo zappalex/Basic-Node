@@ -1,7 +1,5 @@
 This is a basic example of a node.js api with mongoose and express.  The example is based off of the link below, but with a few small differences, mostly between the model.  This example is meant to be run locally, though I have also included brief instructions below on how to get it running on a Ubuntu 16.04 server. 
 
-https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
-https://scotch.io/tutorials/an-introduction-to-mongodb
 
 Ubuntu 16.04 Config
 
@@ -19,9 +17,10 @@ Ubuntu 16.04 Config
 12. install MongoDb - note : project config for mongodb will be reachable through localhost.
 13. config project to run
 
+
 Refs: 
 
-local project
+Local Project
 https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 https://scotch.io/tutorials/an-introduction-to-mongodb
 
