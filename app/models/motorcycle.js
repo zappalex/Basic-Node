@@ -1,11 +1,10 @@
-
-var mongoose 	= require('mongoose'); 
+var mongoose 	= require('mongoose');
 var Schema 		= mongoose.Schema; 
 
 var MotoSchema = new Schema({
 	make : String, 
 	model : String, 
-	year : Number, 
+	year : Number,
 	mileage : Number
 }); 
 

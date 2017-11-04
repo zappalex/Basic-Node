@@ -25,7 +25,7 @@ var router = express.Router();
 //errors, extra logging, etc. 
 router.use(function(req, res, next){
 	// do logging 
-	console.log('Something is happening'); 
+	console.log('Something is happening');
 	// next allows us to go to next route and not stop here. 
 	next(); 
 })
