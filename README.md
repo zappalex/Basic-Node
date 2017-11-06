@@ -17,7 +17,7 @@ Ubuntu 16.04 Config
 10. npm install
 11. npm install mongoose 
 12. install MongoDb - note : project config for mongodb will be reachable through localhost.
-13. config project to run - calls will be reachable through http://<ip>:<port>/<endpoint>.  Ex. http://11.11.111.111:3000/api
+13. config project to run - calls will be reachable through http://< ip >:< port >/< endpoint >.  Ex. http://11.11.111.111:3000/api
 
 
 Refs: 
